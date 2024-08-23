@@ -5,12 +5,11 @@ class VersionDecoder {
     }
 
     parseVersion() {
-        this.topLevelVersion = parseInt(this.versionString.slice(0, 3));
-        this.subLevelVersion = parseInt(this.versionString.slice(3, 5));
-        this.system = this.versionString.charAt(5);
-        this.releaseType = this.versionString.charAt(6);
-        this.releaseVersion = parseInt(this.versionString.charAt(7));
-        console.log(this);
+        this.topLevelVersion = parseInt(this.versionString.slice(0, 2));
+        this.subLevelVersion = parseInt(this.versionString.slice(2, 4));
+        this.system = this.versionString.charAt(4);
+        this.releaseType = this.versionString.charAt(5);
+        this.releaseVersion = parseInt(this.versionString.charAt(6));
     }
 
     getTopLevelVersion() {
@@ -74,6 +73,8 @@ function getLatestVersion(system="T", createClass=true) {
             }
         });
 }
+
+console.log(new VersionDecoder('0122TA1').toHumanReadable());
 
 module.exports = {
     VersionDecoder,
