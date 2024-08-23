@@ -74,7 +74,6 @@ function getLatestVersion(system="T", createClass=true) {
         });
 }
 
-console.log(new VersionDecoder('0122TA1').toHumanReadable());
 
 module.exports = {
     VersionDecoder,
