@@ -21,21 +21,20 @@ class VersionDecoder {
     }
 
     getSystem() {
-        const systems = {
-            'H': 'Head Server Management System',
-            'C': 'Core Web API',
-            'E': 'Unreal Engine 5 SDK',
-            'U': 'Unity SDK',
-            'G': 'Godot SDK',
-            'D': 'Data Server/Child Server System',
-            'X': 'External SDKs (C++ and .NET)',
-            'I': 'Internal System',
-            'T': 'Total System Version'
-        };
+        
         return systems[this.system] || 'Unknown System';
     }
 
     getReleaseType() {
+        const releaseTypes = {
+            'A': 'Alpha',
+            'B': 'Beta',
+            'I': 'Internal',
+            'R': 'Major Release',
+            'D': 'Breaking Release',
+            'S': 'Security Release',
+            'F': 'Bug Fixes'
+        };
         return releaseTypes[this.releaseType] || 'Unknown Release Type';
     }
 
@@ -51,14 +50,16 @@ class VersionDecoder {
     }
 }
 
-const releaseTypes = {
-    'A': 'Alpha',
-    'B': 'Beta',
-    'I': 'Internal',
-    'R': 'Major Release',
-    'D': 'Breaking Release',
-    'S': 'Security Release',
-    'F': 'Bug Fixes'
+const systems = {
+    'H': 'Head Server Management System',
+    'C': 'Core Web API',
+    'E': 'Unreal Engine 5 SDK',
+    'U': 'Unity SDK',
+    'G': 'Godot SDK',
+    'D': 'Data Server/Child Server System',
+    'X': 'External SDKs (C++ and .NET)',
+    'I': 'Internal System',
+    'T': 'Total System Version'
 };
 
 function getLatestVersion(system="T", createClass=true) {
@@ -78,5 +79,5 @@ function getLatestVersion(system="T", createClass=true) {
 module.exports = {
     VersionDecoder,
     getLatestVersion,
-    releaseTypes
+    systems
 };
